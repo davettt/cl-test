@@ -1,9 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Section, Container, Block, Link } from '../../devlink/_Builtin/Basic';
+import { Navbar } from '../../devlink/Navbar';
+import { Footer } from '../../devlink/Footer';
+import { Cta1 } from '../../devlink/Cta1';
 ---
 
 <Layout>
+    <Navbar 
+        navbarLinkFeatures="Hello"
+        navbarLinkProducts="Webflow"
+        navbarLinkResources="Cloud"
+        navbarLinkContact=""
+    client:load /> 
+    <Cta1
+      description = 'Hello this is where the cta description goes',
+      buttonText = "Click me",
+      buttonLink = {{
+        href: "/contact",
+      }}
+    client:load />
   <Section
     client:load
     tag="section"
@@ -41,6 +57,7 @@ import { Section, Container, Block, Link } from '../../devlink/_Builtin/Basic';
       </Block>
     </Container>
   </Section>
+  <Footer client:load /> {/* Add Footer with Client load directive */}
 </Layout>
 
 <style>
